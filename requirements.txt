@@ -2,3 +2,6 @@ torch
 torchvision
 gradio
 Pillow
+opencv-python
+numpy
+PyYAML
