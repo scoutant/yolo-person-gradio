@@ -1,13 +1,3 @@
----
-title: Yolo Person
-emoji: 📉
-colorFrom: gray
-colorTo: gray
-sdk: gradio
-sdk_version: 3.3.1
-app_file: app.py
-pinned: false
-license: apache-2.0
----
+# Person detection with YOLO v5. A simple Gradio demo. Live on Hugging Face.
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+https://huggingface.co/spaces/coutant/yolo-person
