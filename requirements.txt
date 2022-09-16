@@ -5,3 +5,6 @@ Pillow
 opencv-python
 numpy
 PyYAML
+seaborn
+pandas
+matplotlib
