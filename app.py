@@ -23,12 +23,12 @@ def inference(img:PIL.Image.Image, threshold):
     return detections.imgs[0], predictions.size(dim=0) # image and number of detections
 
 gr.Interface(
-    inference,
-    [
+    fn = inference,
+    inputs = [
         gr.inputs.Image(type="pil", label="Input"),
         gr.Slider(minimum=0.5, maximum=0.9, step=0.05, value=0.7, label="Confidence threshold")
       ],
-    [
+    outputs = [
         gr.components.Image(type="pil", label="Output"),
         gr.components.Label(label="nb of persons detected for given confidence threshold")
       ],
