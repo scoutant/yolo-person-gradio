@@ -1,6 +1,6 @@
 torch
 torchvision
-gradio
+gradio==3.3.1
 Pillow
 opencv-python
 numpy
@@ -8,3 +8,5 @@ PyYAML
 seaborn
 pandas
 matplotlib
+scipy
+psutil
