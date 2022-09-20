@@ -15,7 +15,8 @@ def inference(img:PIL.Image.Image, threshold:float=0.6):
         return None,0
     images:List[PIL.Image.Image] = [ img ] # inference operates on a list of images
     model.conf = threshold
-    detections:torchvision.Detections = model(images, size=640)
+    # detections:torchvision.Detections = model(images, size=640)
+    detections = model(images, size=640)
     predictions:torch.Tensor = detections.pred[0] # the predictions for our single image
     detections.render() # bounding boxes and labels added into image
     return detections.imgs[0], predictions.size(dim=0) # image and number of detections
