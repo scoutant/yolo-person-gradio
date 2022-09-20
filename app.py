@@ -29,4 +29,4 @@ gr.Interface(
     article=article,
     examples=[['data/businessmen-612.jpg'], ['data/businessmen-back.jpg']],
     allow_flagging="never"
-).launch(debug=True, enable_queue=True, share=True)
+).launch(debug=True, enable_queue=True)
