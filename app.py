@@ -1,7 +1,6 @@
 from typing import List
 import PIL.Image
 import torch
-import torchvision
 import gradio as gr
 
 article = "<p style='text-align: center'><a href='https://github.com/scoutant/yolo-person-gradio' target='_blank' class='footer'>Github Repo</a></p>"
@@ -15,14 +14,10 @@ def inference(img:PIL.Image.Image, threshold:float=0.6):
         return None,0
     images:List[PIL.Image.Image] = [ img ] # inference operates on a list of images
     model.conf = threshold
-    # detections:torchvision.Detections = model(images, size=640)
     detections = model(images, size=640)
-    print( "detections type:" , type(detections))
-    print( "attributes:" , dir(detections))
     predictions:torch.Tensor = detections.pred[0] # the predictions for our single image
-    result_image=detections.imgs[0]
+    result_image = detections.ims[0] if hasattr(detections, "ims") else detections.imgs[0] # either model.common.Detections or torchvision.Detections
     detections.render() # bounding boxes and labels added into image
-    # return detections.imgs[0], predictions.size(dim=0) # image and number of detections
     return result_image, predictions.size(dim=0) # image and number of detections
 
 gr.Interface(
